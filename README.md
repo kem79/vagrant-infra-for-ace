@@ -20,24 +20,34 @@ These can be downloaded from rails AI file server (10.62.81.186, under
 "Incubation Rail AI") or via the [Rails AI wiki](https://treaty.emc.com/engineering/inc/_layouts/15/start.aspx#/Documents/Forms/AllItems.aspx?RootFolder=%2Fengineering%2Finc%2FDocuments%2F%E2%80%8BRail%20AI%2FInfrastructure%2Finfrastructure%5Fsoftware&FolderCTID=0x0120001DEE9E5C5A970F4099BD0534F3630BFA&View=%7B3C828E24%2D498E%2D4FDA%2D9514%2DE8A54A0793D5%7D)
 
 # Architecture
-![infra](/infrastructure.jpg)
+![infra](infrastructure.jpg)
+## network
+As advised by docker team, an isolated network (bridge) was created to
+support docker boxes networking.
+Service ports have been published so that they provide entry point
+directly to the service or to the GUI management tool (denoted "UI" on
+the architecture diagram above).
 
 # How to use
-1) in your hosts file, add:
-192.168.33.10	rails.ai.local
+1) ensure that IP 192.168.33.10	is available on your local machine.
 2) cd into the root folder of the project and run:
 ```
     vagrant up
 ```
-this will start the VM, and provision the rabbitmq as a docker service
-3) access rabbitmq management console in your browser using the url
-rails.ai.local:15672 (guest/guest)
-4) stop the VM with
+this will start the VM, and provision docker services
+3) stop the VM with
 ```
 vagrant halt
 ```
 
 # Configuration info
-1) rabbitmq
-- management UI: port: 15672 : u: guest / p: guest
-- rabbit server: port: 5672
+- rabbitmq
+  - to access rabbit management GUI: localhost:15672 (u: guest / p: guest)
+  - rabbit server: port: localhost:5672
+- postgres
+  - to access pgadim4 management GUI: localhost:80 (u: guest/ p: guest)
+    - to connect to postgres server in GUI, use postgres docker network
+    configuration: IP: 192.168.0.2 port: 5432
+  - to access postgres directly: localhost:5432
+- portainer
+  - to access to portainer management GUI: localhost:9000
