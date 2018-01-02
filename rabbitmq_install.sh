@@ -1,5 +1,5 @@
+#!/usr/bin/env bash
 # pre-requisite: you already provisioned Docker in your VM.
-
 echo "Install Rabbitmq"
 sudo docker pull rabbitmq
 sudo docker pull rabbitmq:3-management
