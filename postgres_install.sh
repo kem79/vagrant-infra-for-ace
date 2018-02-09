@@ -8,6 +8,9 @@ if [ $? -eq 0 ]
   sudo docker rm pg
 fi
 
+# mandatory to run elk
+echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+
 echo "Install Postgres"
 sudo docker pull postgres
 sudo docker run --name pg \
