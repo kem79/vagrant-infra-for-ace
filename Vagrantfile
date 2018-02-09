@@ -11,10 +11,11 @@ Vagrant.configure(2) do |config|
     rails_ai_external_services.vm.provision :shell, path: "rabbitmq_install.sh", name: "rabbitmq"
     rails_ai_external_services.vm.provision :shell, path: "postgres_install.sh", name: "postgres"
     rails_ai_external_services.vm.provision :shell, path: "pgadmin4_install.sh", name: "pgadmin4"
+    rails_ai_external_services.vm.provision :shell, path: "elk_install.sh", name: "elk"
     rails_ai_external_services.vm.provision :shell, path: "portainer_install.sh", name: "portainer"
 
     rails_ai_external_services.vm.provider "virtualbox" do |vbox|
-      vbox.memory = 1024
+      vbox.memory = 4096
       vbox.cpus = 1
     end
 
