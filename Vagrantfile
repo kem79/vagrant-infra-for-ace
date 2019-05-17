@@ -13,6 +13,7 @@ Vagrant.configure(2) do |config|
     rails_ai_external_services.vm.provision "redis", type: :shell, path: "redis_install.sh"
     # rails_ai_external_services.vm.provision "mysql", type: :shell, path: "mysql_install.sh"
     rails_ai_external_services.vm.provision "postgres", type: :shell, path: "postgres_install.sh"
+    rails_ai_external_services.vm.provision "mongo", type: :shell, path: "mongodb_install.sh"
     # rails_ai_external_services.vm.provision "pgadmin4", type: :shell, path: "pgadmin4_install.sh"
     # rails_ai_external_services.vm.provision "elk", type: :shell, path: "elk_install.sh"
     rails_ai_external_services.vm.provision "portainer", type: :shell, path: "portainer_install.sh"

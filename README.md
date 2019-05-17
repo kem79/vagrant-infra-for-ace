@@ -9,6 +9,9 @@ console)
 - [postgres](https://hub.docker.com/_/postgres/) (and
 [pgadmin4](https://hub.docker.com/r/dpage/pgadmin4/) client)
 - [ELK](https://www.elastic.co/)
+- [Redis](https://redis.io/)
+- [MongoDB](https://www.mongodb.com/)
+
 
 For convenience, a container management tool is also provided
 ([Portainer](https://hub.docker.com/r/portainer/portainer/)).
@@ -56,7 +59,7 @@ by vagrant and you won't have to start them by hand using docker start command
 # Configuration info
 - rabbitmq
   - to access rabbit management GUI: 192.168.99.100:15672 (u: guest / p: guest)
-  - rabbit server: 192.168.99.100:5672
+  - uri: pyamqp://guest@192.168.99.100//
 - postgres
   - to access pgadim4 management GUI: 192.168.99.100:9090 (u: guest/ p: guest)
     - to connect to postgres server in GUI, use postgres docker network
@@ -69,6 +72,11 @@ by vagrant and you won't have to start them by hand using docker start command
   - logstash sink port is 5000
   - kibana UI is accessible on port 5601
   - beat is running on port 5044
+- Redis
+  - uri: redis://192.168.99.100
+  - redis-cli is installed and can be used to interact with redis
+- MongoDB
+  - uri: mongodb://admin:secret@192.168.99.100:27017/admin
 
   
 # How to connect the service to PCF
