@@ -7,10 +7,10 @@ Vagrant.configure(2) do |config|
 
     rails_ai_external_services.vm.network "private_network", ip: "192.168.99.100"
 
-    rails_ai_external_services.vm.provision "redis-cli", type: :shell, path: "redis_cli.sh"
     rails_ai_external_services.vm.provision "docker", type: :shell, path: "docker_install.sh"
-    rails_ai_external_services.vm.provision "rabbitmq", type: :shell, path: "rabbitmq_install.sh"
     rails_ai_external_services.vm.provision "redis", type: :shell, path: "redis_install.sh"
+    rails_ai_external_services.vm.provision "redis-cli", type: :shell, path: "redis_cli.sh"
+    rails_ai_external_services.vm.provision "rabbitmq", type: :shell, path: "rabbitmq_install.sh"
     # rails_ai_external_services.vm.provision "mysql", type: :shell, path: "mysql_install.sh"
     rails_ai_external_services.vm.provision "postgres", type: :shell, path: "postgres_install.sh"
     rails_ai_external_services.vm.provision "mongo", type: :shell, path: "mongodb_install.sh"
