@@ -23,7 +23,7 @@ If you already have docker installed on your machine, you won't be able to insta
 vagrant as they have conflicting configuration.
 
 # Architecture (THIS IS OUTDATED)
-![](http://10.62.81.24/Marc/rails-ai-service-appliance/raw/fix-image/images/id-pic.png?raw=true)
+![](ACE-infra-VM.png?raw=true)
 
 # How to use
 ## Initial start
