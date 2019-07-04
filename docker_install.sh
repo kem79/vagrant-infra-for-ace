@@ -14,6 +14,7 @@ sudo add-apt-repository \
 
 echo "Install Docker"
 #sudo apt-get remove docker-ce docker docker-engine docker.io containerd runc -y
+sudo apt-get update
 sudo apt-get install docker-ce=17.03.2~ce-0~ubuntu-trusty -y
 # sudo docker run hello-world # To test docker install
 
