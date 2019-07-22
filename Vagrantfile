@@ -2,10 +2,18 @@ ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 
 Vagrant.configure(2) do |config|
 
+
   config.vm.define "rails_ai_external_services" do |rails_ai_external_services|
     rails_ai_external_services.vm.box = "ubuntu/trusty64"
 
     rails_ai_external_services.vm.network "private_network", ip: "192.168.99.100"
+    rails_ai_external_services.vm.network "forwarded_port", guest: 5672, host: 5672, host_ip: "192.168.99.100"
+    rails_ai_external_services.vm.network "forwarded_port", guest: 15672, host: 15672, host_ip: "192.168.99.100"
+    rails_ai_external_services.vm.network "forwarded_port", guest: 1883, host: 1883, host_ip: "192.168.99.100"
+    rails_ai_external_services.vm.network "forwarded_port", guest: 6379, host: 6379, host_ip: "192.168.99.100"
+    rails_ai_external_services.vm.network "forwarded_port", guest: 5432, host: 5432, host_ip: "192.168.99.100"
+    rails_ai_external_services.vm.network "forwarded_port", guest: 27017, host: 27017, host_ip: "192.168.99.100"
+    rails_ai_external_services.vm.network "forwarded_port", guest: 9000, host: 9000, host_ip: "192.168.99.100"
 
     rails_ai_external_services.vm.provision "docker", type: :shell, path: "docker_install.sh"
     rails_ai_external_services.vm.provision "redis", type: :shell, path: "redis_install.sh"
@@ -22,6 +30,8 @@ Vagrant.configure(2) do |config|
       vbox.memory = 4096
       vbox.cpus = 1
     end
+
+
 
   end
 
